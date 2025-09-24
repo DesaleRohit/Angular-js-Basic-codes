@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title>Routing Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <nav style="background: #f0f0f0; padding: 10px;">
+        <a href="#!/">Home</a> |
+        <a href="#!/about">About</a> |
+        <a href="#!/users">Users</a> |
+        <a href="#!/contact">Contact</a>
+    </nav>
+
+    <div ng-view style="padding: 20px; border: 1px solid #ccc; margin: 10px;"></div>
+</body>
+
+</html>
