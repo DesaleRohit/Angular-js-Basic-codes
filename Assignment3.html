@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3 Service</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="MyController">
+        <ul>
+            <li ng-repeat="subject in list"><p>{{ subject }}</p></li>
+        </ul>
+    <script>
+        var app = angular.module("MyApp",[]);
+        app.service("subjects",function(){
+            var arr = ["Employability Skill","E-commerce","Cloud Computing","Angular-js"];
+            this.subjectreturn = function() {
+                return arr;
+            };
+        });
+        app.controller("MyController",function($scope,subjects){
+            $scope.list = subjects.subjectreturn();
+        });
+    </script>
+</body>
+</html>

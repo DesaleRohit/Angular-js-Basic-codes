@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="To-Do-App">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 4 To-Do-List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="To-Do-Controller">
+
+    <input type="text" placeholder="Enter Your Task" ng-model="taskText" name="taskText" />
+    <input type="button" value="Submit" ng-click="addTask()" />
+
+    <div>
+        <span ng-if="todoList.length == 0"><br>No Tasks Inserted</span>
+    </div>
+
+    <div>
+        <ul>
+            <li ng-repeat="item in todoList">
+                <input type="checkbox" ng-model="item.done" /> {{ item.title }}
+            </li>
+        </ul>
+    </div>
+
+    <div ng-if="todoList.length > 0 && completedAll()">
+        All tasks are done
+    </div>
+
+    <script>
+        var app = angular.module('To-Do-App', []);
+        app.controller('To-Do-Controller', function ($scope) {
+            $scope.todoList = [];
+
+            $scope.addTask = function () {
+                $scope.todoList.push({ title: $scope.taskText, done: false });
+            }
+
+            $scope.completedAll = function () {
+                if ($scope.todoList.length == 0) return false;
+                for (var i = 0; i < $scope.todoList.length; i++) {
+                    if (!$scope.todoList[i].done) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        });
+    </script>
+</body>
+
+</html>

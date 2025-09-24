@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 2 Login Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+
+    <h2>Login Form</h2>
+    <form name="LoginForm">
+        Username : <input type="text" name="username" ng-model="username" required minlength="5" />
+        <span ng-show="LoginForm.username.$touched && LoginForm.username.$error.required">Username is required</span>
+        <span ng-show="LoginForm.username.$error.minlength">Must be at least 5 character or long.</span>
+        <br><br>
+        Password : <input type="password" name="password" ng-model="password" required minlength="8" />
+        <span ng-show="LoginForm.password.$touched && LoginForm.password.$error.required"> Password is required</span>
+        <span ng-show="LoginForm.password.$error.minlength">Must be at least 8 character or more.</span>
+        <br><br>
+        <input type="button" ng-disabled="LoginForm.$invalid" value="Login" />
+    </form>
+
+</body>
+
+</html>
