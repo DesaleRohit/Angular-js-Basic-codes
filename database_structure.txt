@@ -1,0 +1,83 @@
+use Rohit_StudentDB
+
+db.createCollection("Students")
+db.createCollection("Courses")
+
+//Students Collection
+db.Students.insertOne({
+    "student_name": "Rohit Pravin Desale",
+    "roll_number": 12,
+    "email": "rohitdesale123@gmail.com",
+    "course_enrolled": "BCA",
+    "year_of_admission": 2023,
+    "is_active": true
+})
+
+
+ db.Students.insertMany([
+    {
+        "students_name": "Nikhil Patil",
+        "roll_number": 40,
+        "email": "PatilNikhil145@@gmail.com",
+        "course_enrolled": "BCA",
+        "year_of_admission": 2023,
+        "is_active": true
+    },
+    {
+        "student_name": "Sanket Borse",
+        "roll_number": "9",
+        "email": "sanketBorse478@gmail.com",
+        "course_enrolled": "BCA",
+        "year_of_admission": 2023,
+        "is_active": true
+    },
+    {
+        "student_name": "Dhanesh Dhobi",
+        "roll_number": 17,
+        "email": "bhushanpardeshi987@gmail.com",
+        "course": "BCA",
+        "year_of_admission": "2023",
+        "is_active": true
+    },
+    {
+        "student_name": "Sanket Borse",
+        "roll_number": "9",
+        "email": "sanketBorse478@gmail.com",
+        "course_enrolled": "BCA",
+        "year_of_admission": 2023,
+        "is_active": true
+    }
+])
+
+//Courses Collection
+db.Courses.insertOne({
+    "couese_id": "BCA 501",
+    "course_name": "Employability_Skills",
+    "duration_in_years": 1,
+    "department": "Science and Technology",
+    "credits": 5
+})
+
+db.Courses.insertMany([
+    {
+        "couese_id": "BCA 502",
+        "course_name": "E-Commerce & M Commerce",
+        "duration_in_years": 1,
+        "department": "Science and Technology",
+        "credits": 3
+    },
+    {
+        "couese_id": "BCA 503",
+        "course_name": "Cloud Computing",
+        "duration_in_years": 1,
+        "department": "Science and Technology",
+        "credits": 4
+    },
+    {
+        "couese_id": "BCA 501",
+        "course_name": "Web Devlopment Technology III",
+        "duration_in_years": 1,
+        "department": "Science and Technology",
+        "credits": 5
+    }
+])

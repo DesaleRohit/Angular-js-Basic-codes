@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="subjectApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Service Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="subjectController">
+
+    <h2>List of Subjects</h2>
+    <ul>
+        <li ng-repeat="subject in subjects">{{subject}}</li>
+    </ul>
+
+    <script>
+        // Create the AngularJS module
+        var app = angular.module("subjectApp", []);
+
+        // Create the service
+        app.service("subjectService", function () {
+            this.getSubjects = function () {
+                return ["AngularJS", "Python", "Java", "DBMS"];
+            };
+        });
+
+        // Create the controller
+        app.controller("subjectController", function ($scope, subjectService) {
+            $scope.subjects = subjectService.getSubjects();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Directives</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="myController">
+    <h2>AngularJS Directives Example</h2>
+
+    <button ng-click="onClick()">Click Me</button>
+    <p>{{ clickMSG }}</p>
+
+    <div ng-dblclick="onDbClick()">
+        Double Click Me
+    </div>
+    <p>{{ dbClickMSG }}</p>
+
+    <div ng-mouseover="onMouseOver()" ng-mouseleave="onMouseLeave()">
+        Hover Over Me
+    </div>
+    <p>{{ hoverMSG }}</p>
+
+    <input type="text" ng-keyup="onKeyUp()" placeholder="Type Something..." />
+    <p>{{ keyupMSG }}</p>
+
+    <form ng-submit="onSubmit()">
+        <input type="text" ng-model="formData" placeholder="Enter text" />
+        <button type="submit">Submit</button>
+    </form>
+    <p>{{ submitMSG }}</p>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myController', function ($scope) {
+            $scope.onClick = function () {
+                $scope.clickMSG = "Button Clicked";
+            };
+            $scope.onDbClick = function () {
+                $scope.dbClickMSG = "Element Double-Clicked";
+            };
+            $scope.onMouseOver = function () {
+                $scope.hoverMSG = "Mouse is over the element";
+            };
+            $scope.onMouseLeave = function () {
+                $scope.hoverMSG = "Mouse left the element";
+            };
+            $scope.onKeyUp = function () {
+                $scope.keyupMSG = "Key released";
+            };
+            $scope.onSubmit = function () {
+                $scope.submitMSG = "Form submitted with " + $scope.formData;
+            };
+        });
+    </script>
+</body>
+
+</html>
