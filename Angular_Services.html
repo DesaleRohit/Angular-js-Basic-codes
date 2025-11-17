@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    </head>
+
+    <body ng-app="AngApp" ng-controller="AngController">
+
+        <button ng-click="loaddata()">Load Data</button>
+        <p>Name: {{ user.name }}</p>
+
+        <script>
+            var app = angular.module('AngApp', []);
+            
+            app.controller('AngController', function($scope, $http){
+                $scope.user = null;
+
+                $scope.loaddata = function() {
+                    $http.get("https://jsonplaceholder.typicode.com/users?id=5")
+                        .then(function(response){
+                            $scope.user = response.data[0];
+                        })
+                        .catch(function(error){
+                            alert(error);
+                        });
+                };
+            });
+        </script>
+    </body>
+</html>
